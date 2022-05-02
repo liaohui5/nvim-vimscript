@@ -23,3 +23,11 @@ neovim test.txt
 # 末行模式执行命令
 :PlugInstall
 ```
+
+## 安装 Coc 插件(代码提示)
+
+https://github.com/neoclide/coc.nvim
+
+```sh
+:CocInstall coc-json coc-css coc-tsserver coc-vetur
+```
