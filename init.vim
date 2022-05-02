@@ -42,12 +42,14 @@ set nowritebackup
 ":xmap - Display visual mode maps
 ":cmap - Display command-line mode maps
 ":omap - Display operator pending mode maps
+" <Leader>0 - reload neovim configs
 
 let mapleader="\<Space>"
 nmap <Leader>w :w<CR>
 nmap <Leader>s :w<CR>
 nmap <Leader>x :x<CR>
 nmap - :nohl<CR>
+nmap <Leader>0 :source ~/.config/nvim/init.vim <CR> 
 nnoremap x "_x
 vnoremap x "_x
 
@@ -68,7 +70,7 @@ Plug 'crusoexia/vim-monokai'
 Plug 'easymotion/vim-easymotion'
 Plug 'justinmk/vim-sneak'
 Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install',
+  \ 'do': 'yarn install --frozen-lockfile --production',
   \ 'for': ['javascript', 'jsx', 'typescript', 'css', 'less', 'scss', 'json', 'markdown', 'vue', 'yaml', 'xml', 'html'] }
 Plug 'editorconfig/editorconfig-vim'
 Plug 'preservim/nerdtree'
