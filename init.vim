@@ -63,6 +63,16 @@ nnoremap <C-j> <C-w>j<CR>
 nnoremap <C-k> <C-w>k<CR>
 nnoremap <leader>bp :bprevious<CR>
 nnoremap <leader>bn :bnext<CR>
+" close current buffer but dont close vim
+func CloseBufferOnly()
+  :bp|bd #
+endf
+nnoremap <leader>bc :call CloseBufferOnly()<CR>
+vnoremap <Tab> >
+vnoremap <leader><Tab> <
+nnoremap $ $h
+vnoremap $ $h
+nnoremap <leader>n :!touch 
 
 
 " .----------------.  .----------------.  .----------------.  .----------------.  .----------------.  .-----------------. .----------------. 
@@ -179,8 +189,14 @@ autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_
 " Open the existing NERDTree on each new tab.
 autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
 
+fun! ToggleNERDTreeWithRefresh()
+  :NERDTreeFocus
+  call feedkeys("R")
+endf 
+
+
 " nnoremap <C-n> :NERDTree<CR>
-nnoremap <leader>t :NERDTreeFocus<CR>
+nmap <leader>t :call ToggleNERDTreeWithRefresh()<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 
