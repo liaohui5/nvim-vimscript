@@ -83,8 +83,9 @@ vnoremap <leader><Tab> <
 nnoremap $ $h
 vnoremap $ $h
 
-" create file
+" create file & delte files(Notice a space at the end of the line)
 nnoremap <leader>n :!touch 
+nnoremap <leader>df :!rm -rf 
 
 " find selection & replace
 vnoremap <C-f> gd<ESC>
@@ -141,7 +142,6 @@ function! s:check_back_space() abort
 endfunction
 
 " goto code navigation.
-nmap <silent> <leader>d <Plug>(coc-definition)
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
