@@ -54,7 +54,9 @@ nnoremap <leader>w :w<CR>
 nnoremap <leader>s :w<CR>
 nnoremap <leader>x :x<CR>
 nnoremap x "_x
-nnoremap p "_p
+vnoremap x "_x
+vnoremap s "_s
+nnoremap s "_s
 nnoremap <C-l> <C-w>l<CR>
 nnoremap <C-h> <C-w>h<CR>
 nnoremap <C-j> <C-w>j<CR>
