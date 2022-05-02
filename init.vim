@@ -14,12 +14,13 @@ syntax enable         " allow syntax highlight
 set expandtab         " tab to space
 set cursorline        " highlight current line 
 set clipboard=unnamed " use operate system clipboard
-set tabstop=4         " tab size 4 space
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2         " tab size 2 space
+set shiftwidth=2
+set softtabstop=2
 set expandtab
 set smarttab          " auto indent
 set autoindent
+set cindent
 set encoding=utf-8    " utf-8
 set hidden            " TextEdit might fail if hidden is not set.
 set nobackup          " Some servers have issues with backup files
