@@ -53,8 +53,8 @@ nnoremap - :nohl<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>s :w<CR>
 nnoremap <leader>x :x<CR>
-nnoremap x "_x <CR>
-vnoremap x "_x <CR>
+nnoremap x "_x
+nnoremap p "_p
 nnoremap <C-l> <C-w>l<CR>
 nnoremap <C-h> <C-w>h<CR>
 nnoremap <C-j> <C-w>j<CR>
@@ -122,7 +122,7 @@ nmap <silent> gr <Plug>(coc-references)
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline_theme='molokai'
+let g:airline_theme='simple'
 
 " >>>>> colorscheme <<<<<
 colorscheme monokai
