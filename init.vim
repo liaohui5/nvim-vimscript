@@ -50,6 +50,7 @@ set cmdheight=1       " command line hight
 let mapleader="\<Space>"
 nnoremap <leader>0 :source ~/.config/nvim/init.vim <CR> 
 nnoremap - :nohl<CR>
+vnoremap <C-f> gd<ESC> " search and highlight selected chars
 nnoremap <leader>w :w<CR>
 nnoremap <leader>s :w<CR>
 nnoremap <leader>x :x<CR>
@@ -57,10 +58,10 @@ nnoremap x "_x
 vnoremap x "_x
 vnoremap s "_s
 nnoremap s "_s
-nnoremap <C-l> <C-w>l<CR>
-nnoremap <C-h> <C-w>h<CR>
-nnoremap <C-j> <C-w>j<CR>
-nnoremap <C-k> <C-w>k<CR>
+nnoremap <C-l> <C-w>l
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
 nnoremap <leader>bp :bprevious<CR>
 nnoremap <leader>bn :bnext<CR>
 " close current buffer but dont close vim
@@ -68,11 +69,12 @@ func CloseBufferOnly()
   :bp|bd #
 endf
 nnoremap <leader>bc :call CloseBufferOnly()<CR>
-vnoremap <Tab> >
-vnoremap <leader><Tab> <
+vnoremap <Tab> > " indent
+vnoremap <leader><Tab> < " outdent
 nnoremap $ $h
 vnoremap $ $h
-nnoremap <leader>n :!touch 
+nnoremap <leader>n :!touch " create file
+nnoremap <leader>r :%s/ " replace
 
 
 " .----------------.  .----------------.  .----------------.  .----------------.  .----------------.  .-----------------. .----------------. 
@@ -124,8 +126,8 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
+" goto code navigation.
+nmap <silent> <leader>d <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
@@ -150,7 +152,7 @@ let g:EasyMotion_do_mapping = 0 " Disable default mappings
 nmap s <Plug>(easymotion-overwin-f)
 
 " `s{char}{char}{label}`
-nmap s <Plug>(easymotion-overwin-f2)
+"nmap s <Plug>(easymotion-overwin-f2)
 
 " Turn on case-insensitive feature
 let g:EasyMotion_smartcase = 1
@@ -160,7 +162,7 @@ map <leader>j <Plug>(easymotion-j)
 map <leader>k <Plug>(easymotion-k)
 
 
-" >>>>> vim-easymotion <<<<<
+" >>>>> vim-sneak <<<<<
 let g:sneak#label = 1
 nmap f <Plug>Sneak_s
 nmap F <Plug>Sneak_S
@@ -189,13 +191,14 @@ autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_
 " Open the existing NERDTree on each new tab.
 autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
 
+" refresh files & focused on NerdTree
 fun! ToggleNERDTreeWithRefresh()
   :NERDTreeFocus
   call feedkeys("R")
 endf 
 
 
-" nnoremap <C-n> :NERDTree<CR>
+" nnoremap <C-t> :NERDTree<CR>
 nmap <leader>t :call ToggleNERDTreeWithRefresh()<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
