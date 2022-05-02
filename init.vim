@@ -45,36 +45,50 @@ set cmdheight=1       " command line hight
 ":xmap - Display visual mode maps
 ":cmap - Display command-line mode maps
 ":omap - Display operator pending mode maps
-" <leader>0 - reload neovim configs
 
 let mapleader="\<Space>"
+
+" <leader>0 : reload neovim configs
 nnoremap <leader>0 :source ~/.config/nvim/init.vim <CR> 
+
+" no highlight
 nnoremap - :nohl<CR>
-vnoremap <C-f> gd<ESC> " search and highlight selected chars
+
+" <leader>s/<leader>w: save current file, <leader>x: save file and quit vim
 nnoremap <leader>w :w<CR>
 nnoremap <leader>s :w<CR>
 nnoremap <leader>x :x<CR>
+
+" only delete not cut
 nnoremap x "_x
 vnoremap x "_x
 vnoremap s "_s
 nnoremap s "_s
-nnoremap <C-l> <C-w>l
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
+
+" next buffer & prev buffer
 nnoremap <leader>bp :bprevious<CR>
 nnoremap <leader>bn :bnext<CR>
+
 " close current buffer but dont close vim
 func CloseBufferOnly()
   :bp|bd #
 endf
 nnoremap <leader>bc :call CloseBufferOnly()<CR>
-vnoremap <Tab> > " indent
-vnoremap <leader><Tab> < " outdent
+
+" indent & outdent
+vnoremap <Tab> >
+vnoremap <leader><Tab> <
+
+" move to end of line but whitout <CR>
 nnoremap $ $h
 vnoremap $ $h
-nnoremap <leader>n :!touch " create file
-nnoremap <leader>r :%s/ " replace
+
+" create file
+nnoremap <leader>n :!touch 
+
+" find selection & replace
+vnoremap <C-f> gd<ESC>
+nnoremap <leader>r :%s/
 
 
 " .----------------.  .----------------.  .----------------.  .----------------.  .----------------.  .-----------------. .----------------. 
@@ -128,6 +142,7 @@ endfunction
 
 " goto code navigation.
 nmap <silent> <leader>d <Plug>(coc-definition)
+nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
@@ -192,11 +207,10 @@ autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_
 autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
 
 " refresh files & focused on NerdTree
-fun! ToggleNERDTreeWithRefresh()
+function ToggleNERDTreeWithRefresh()
   :NERDTreeFocus
   call feedkeys("R")
-endf 
-
+endfunction
 
 " nnoremap <C-t> :NERDTree<CR>
 nmap <leader>t :call ToggleNERDTreeWithRefresh()<CR>
