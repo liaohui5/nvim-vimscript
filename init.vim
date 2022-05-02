@@ -20,9 +20,11 @@ set softtabstop=4
 set expandtab
 set smarttab          " auto indent
 set autoindent
+set encoding=utf-8    " utf-8
 set hidden            " TextEdit might fail if hidden is not set.
 set nobackup          " Some servers have issues with backup files
 set nowritebackup
+set cmdheight=1       " command line hight
 
 " .----------------.  .----------------.  .----------------.  .----------------.  .----------------.  .----------------.  .----------------. 
 "| .--------------. || .--------------. || .--------------. || .--------------. || .--------------. || .--------------. || .--------------. |
@@ -42,16 +44,23 @@ set nowritebackup
 ":xmap - Display visual mode maps
 ":cmap - Display command-line mode maps
 ":omap - Display operator pending mode maps
-" <Leader>0 - reload neovim configs
+" <leader>0 - reload neovim configs
 
 let mapleader="\<Space>"
-nmap <Leader>w :w<CR>
-nmap <Leader>s :w<CR>
-nmap <Leader>x :x<CR>
-nmap - :nohl<CR>
-nmap <Leader>0 :source ~/.config/nvim/init.vim <CR> 
-nnoremap x "_x
-vnoremap x "_x
+nnoremap <leader>0 :source ~/.config/nvim/init.vim <CR> 
+nnoremap - :nohl<CR>
+nnoremap <leader>w :w<CR>
+nnoremap <leader>s :w<CR>
+nnoremap <leader>x :x<CR>
+nnoremap x "_x <CR>
+vnoremap x "_x <CR>
+nnoremap <C-l> <C-w>l<CR>
+nnoremap <C-h> <C-w>h<CR>
+nnoremap <C-j> <C-w>j<CR>
+nnoremap <C-k> <C-w>k<CR>
+nnoremap <leader>bp :bprevious<CR>
+nnoremap <leader>bn :bnext<CR>
+
 
 " .----------------.  .----------------.  .----------------.  .----------------.  .----------------.  .-----------------. .----------------. 
 "| .--------------. || .--------------. || .--------------. || .--------------. || .--------------. || .--------------. || .--------------. |
@@ -76,7 +85,43 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'preservim/nerdtree'
 Plug 'grvcoelho/vim-javascript-snippets'
 Plug 'kien/ctrlp.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
+
+
+" >>>>> coc.nvim <<<<<
+" Always show the signcolumn
+if has("nvim-0.5.0") || has("patch-8.1.1564")
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
+
+" Use tab for trigger completion with characters ahead and navigate
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" >>>>> vim-airline && vim-airline-themes <<<<<
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline_theme='molokai'
 
 " >>>>> colorscheme <<<<<
 colorscheme monokai
@@ -98,8 +143,8 @@ nmap s <Plug>(easymotion-overwin-f2)
 let g:EasyMotion_smartcase = 1
 
 " JK motions: Line motions
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
+map <leader>j <Plug>(easymotion-j)
+map <leader>k <Plug>(easymotion-k)
 
 
 " >>>>> vim-easymotion <<<<<
@@ -109,7 +154,7 @@ nmap F <Plug>Sneak_S
 
 " >>>>> vim-prettier <<<<<
 let g:prettier#autoformat = 1
-nmap <Leader>f :PrettierAsync<CR>
+nmap <leader>f :PrettierAsync<CR>
 
 " >>>>> preservim/nerdtree <<<<<
 "let g:NERDTreeDirArrowExpandable = '▸'
