@@ -79,7 +79,7 @@
 	"javascript.referencesCodeLens.enable": true,
 	"javascript.showUnused": true,
 	"javascript.suggest.names": true,
-	"javascript.suggestionActions.enabled": true,
+	"javascript.suggestionActions.enabled": false,
 	"json.format.enable": true,
 	"eslint.autoFixOnSave": false,
 	"prettier.printWidth": 100,

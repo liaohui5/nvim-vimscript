@@ -130,6 +130,7 @@ let g:coc_global_extensions = [
   \'coc-css',
   \'coc-cssmodules',
   \'coc-stylelint',
+  \'coc-diagnostic',
   \'coc-tsserver',
   \'coc-eslint',
   \'coc-tslint',
