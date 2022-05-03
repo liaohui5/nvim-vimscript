@@ -2,6 +2,8 @@
 
 这是一个自己用的 neovim 配置的仓库
 
+![preview](https://raw.githubusercontent.com/liaohui5/images/main/images/202205032331754.png)
+
 ## 安装 neovim
 
 ```sh
@@ -40,17 +42,27 @@ let g:coc_global_extensions = [
   \'coc-html',
   \'coc-git',
   \'coc-docker',
-  \'coc-nginx',
   \'coc-prettier',
   \'coc-sh',
   \'coc-sql',
   \'coc-translator',
-  \'coc-valor',
-  \'coc-vetur'
+  \'coc-vetur',
   \'coc-yaml',
   \'coc-yank',
   \'coc-explorer',
   \'coc-emmet',
-  \'coc-floatterm',
+  \'coc-webpack',
+  \'coc-marketplace',
+  \'coc-webview',
+  \'coc-markdown-preview-enhanced',
+  \'@yaegassy/coc-volar',
+  \'@yaegassy/coc-volar-tools',
+  \'@yaegassy/coc-nginx',
   \]
 ```
+
+## 如果图标显示错误
+1. 请安装指定字体 https://github.com/ryanoasis/nerd-fonts
+2. 将终端的字体设置为这个字体我的是 hack-nerd
+
+

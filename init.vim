@@ -147,6 +147,7 @@ let g:coc_global_extensions = [
   \'coc-emmet',
   \'coc-webpack',
   \'coc-marketplace',
+  \'coc-webview',
   \'coc-markdown-preview-enhanced',
   \'@yaegassy/coc-volar',
   \'@yaegassy/coc-volar-tools',
@@ -215,6 +216,8 @@ nmap <leader>cl <Plug>(coc-codelens-action)
 " statusline
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
+" open markdown preview on browser
+nmap <leader>om :CocCommand markdown-preview-enhanced.openPreview<CR>
 
 " >>>>> vim-airline && vim-airline-themes <<<<<
 let g:airline#extensions#tabline#enabled = 1
