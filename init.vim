@@ -26,6 +26,7 @@ set hidden            " TextEdit might fail if hidden is not set.
 set nobackup          " Some servers have issues with backup files
 set nowritebackup
 set cmdheight=1       " command line hight
+set updatetime=100    " update time
 
 " .----------------.  .----------------.  .----------------.  .----------------.  .----------------.  .----------------.  .----------------. 
 "| .--------------. || .--------------. || .--------------. || .--------------. || .--------------. || .--------------. || .--------------. |
@@ -45,8 +46,7 @@ set cmdheight=1       " command line hight
 ":xmap - Display visual mode maps
 ":cmap - Display command-line mode maps
 ":omap - Display operator pending mode maps
-
-let mapleader="\<Space>"
+let g:mapleader="\<SPACE>"
 
 " <leader>0 : reload neovim configs
 nnoremap <leader>0 :source ~/.config/nvim/init.vim <CR> 
@@ -91,6 +91,11 @@ nnoremap <leader>df :!rm -rf
 vnoremap <C-f> gd<ESC>
 nnoremap <leader>r :%s/
 
+" window resize
+nnoremap <right> :vertical-resize-1<cr>
+nnoremap <left> :vertical-resize+1<cr>
+nnoremap <up> :resize-1<cr>
+nnoremap <down> :resize+1<cr>
 
 " .----------------.  .----------------.  .----------------.  .----------------.  .----------------.  .-----------------. .----------------. 
 "| .--------------. || .--------------. || .--------------. || .--------------. || .--------------. || .--------------. || .--------------. |
@@ -108,20 +113,46 @@ call plug#begin('~/.config/nvim/plugins')
 Plug 'crusoexia/vim-monokai'
 Plug 'easymotion/vim-easymotion'
 Plug 'justinmk/vim-sneak'
-Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install --frozen-lockfile --production',
-  \ 'for': ['javascript', 'jsx', 'typescript', 'css', 'less', 'scss', 'json', 'markdown', 'vue', 'yaml', 'xml', 'html'] }
 Plug 'editorconfig/editorconfig-vim'
-Plug 'preservim/nerdtree'
 Plug 'grvcoelho/vim-javascript-snippets'
 Plug 'kien/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'tpope/vim-surround'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 
 " >>>>> coc.nvim <<<<<
+" install coc extensions: https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions#why-are-coc-extensions-needed
+let g:coc_global_extensions = [
+  \'coc-json',
+  \'coc-css',
+  \'coc-cssmodules',
+  \'coc-stylelint',
+  \'coc-tsserver',
+  \'coc-eslint',
+  \'coc-tslint',
+  \'coc-html',
+  \'coc-git',
+  \'coc-docker',
+  \'coc-prettier',
+  \'coc-sh',
+  \'coc-sql',
+  \'coc-translator',
+  \'coc-vetur',
+  \'coc-yaml',
+  \'coc-yank',
+  \'coc-explorer',
+  \'coc-emmet',
+  \'coc-webpack',
+  \'coc-marketplace',
+  \'coc-markdown-preview-enhanced',
+  \'@yaegassy/coc-volar',
+  \'@yaegassy/coc-volar-tools',
+  \'@yaegassy/coc-nginx',
+  \]
+
 " Always show the signcolumn
 if has("nvim-0.5.0") || has("patch-8.1.1564")
   set signcolumn=number
@@ -141,11 +172,49 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
+" i mode<c-l>: show completion popwindow
+inoremap <silent><expr> <c-l> coc#refresh()
+
 " goto code navigation.
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+
+" use enter select completion item
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+" prev error & next error
+nmap <silent><leader>[ <Plug>(coc-diagnostic-prev)
+nmap <silent><leader>] <Plug>(coc-diagnostic-next)
+
+" <leader>h: show documentation in preview window.
+nnoremap <silent><leader>h :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
+
+" show codeaction menus
+xmap <leader>m <Plug>(coc-codeaction-selected)
+nmap <leader>m <Plug>(coc-codeaction-selected)
+
+" show codeaction menus
+nmap <leader>ac <Plug>(coc-codeaction)
+
+" auto fix
+nmap <leader>qf <Plug>(coc-fix-current)
+
+" Run the Code Lens action on the current line.
+nmap <leader>cl <Plug>(coc-codelens-action)
+
+" statusline
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
 
 " >>>>> vim-airline && vim-airline-themes <<<<<
 let g:airline#extensions#tabline#enabled = 1
@@ -182,40 +251,13 @@ let g:sneak#label = 1
 nmap f <Plug>Sneak_s
 nmap F <Plug>Sneak_S
 
-" >>>>> vim-prettier <<<<<
-let g:prettier#autoformat = 1
-nmap <leader>f :PrettierAsync<CR>
+" >>>>> coc-prettier <<<<<
+nmap <leader>f :CocCommand prettier.formatFile<CR>
+vmap <leader>f :CocCommand prettier.formatFile<CR>
 
-" >>>>> preservim/nerdtree <<<<<
-"let g:NERDTreeDirArrowExpandable = '▸'
-"let g:NERDTreeDirArrowCollapsible = '▾'
-let g:NERDTreeDirArrowExpandable = '+'
-let g:NERDTreeDirArrowCollapsible = '-'
+" >>>>> coc-explorer <<<<<
 
-" Start NERDTree when Vim is started without file arguments.
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
-
-" Exit Vim if NERDTree is the only window remaining in the only tab.
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-
-" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
-autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
-    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
-
-" Open the existing NERDTree on each new tab.
-autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
-
-" refresh files & focused on NerdTree
-function ToggleNERDTreeWithRefresh()
-  :NERDTreeFocus
-  call feedkeys("R")
-endfunction
-
-" nnoremap <C-t> :NERDTree<CR>
-nmap <leader>t :call ToggleNERDTreeWithRefresh()<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
+nnoremap <C-t> :CocCommand explorer<CR>
 
 " >>>>> kien/ctrlp.vim <<<<<
 let g:ctrlp_use_caching = 0

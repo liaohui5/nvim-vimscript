@@ -1,9 +1,104 @@
 {
-  "languageserver": {
-    "sql": {
-      "command": "sql-language-server",
-      "args": ["up", "--method", "stdio"],
-      "filetypes": ["sql", "mysql"]
-    }
-  }
+	// debug js
+	"tsserver.trace.server": "verbose",
+
+	// coc plugin settings
+	"coc.preferences.extensionUpdateCheck": "daily",
+	"coc.preferences.snippetStatusText": "Ⓢ ",
+	"coc.preferences.enableFloatHighlight": true,
+	"coc.preferences.messageLevel": "error",
+
+	// explorer
+	"explorer.width": 30,
+	"explorer.position": "left",
+	"explorer.focus": true,
+	"explorer.file.column.indent.indentLine": true,
+	"explorer.file.showHiddenFiles": true,
+	"explorer.icon.enableNerdfont": true,
+	"explorer.icon.source": "builtin",
+	"explorer.sources": [
+		{
+			"name": "file",
+			"expand": true
+		}
+	],
+
+	// suggest
+	"suggest.enablePreselect": false,
+	"suggest.triggerAfterInsertEnter": true,
+	"suggest.autoTrigger": "always",
+	"suggest.timeout": 2000,
+	"suggest.enablePreview": true,
+	"suggest.floatEnable": true,
+	"diagnostic.checkCurrentLine": true,
+	"diagnostic.virtualTextPrefix": " ❯❯❯ ",
+	"diagnostic.virtualText": false,
+	"codeLens.enable": true,
+
+	"suggest.completionItemKindLabels": {
+		"class": "\uf0e8",
+		"color": "\ue22b",
+		"constant": "\uf8fe",
+		"default": "\uf29c",
+		"enum": "\uf435",
+		"enumMember": "\uf02b",
+		"event": "\ufacd",
+		"field": "\uf93d",
+		"file": "\uf723",
+		"folder": "\uf115",
+		"function": "\u0192",
+		"interface": "\uf417",
+		"keyword": "\uf1de",
+		"method": "\uf6a6",
+		"module": "\uf40d",
+		"operator": "\uf915",
+		"property": "\ue624",
+		"reference": "\ufa46",
+		"snippet": "\ue60b",
+		"struct": "\ufb44",
+		"text": "\ue612",
+		"typeParameter": "\uf728",
+		"unit": "\uf475",
+		"value": "\uf89f",
+		"variable": "\ue71b"
+	},
+	"coc.preferences.formatOnSaveFiletypes": [
+		"javascript",
+		"typescript",
+		"typescriptreact",
+		"html",
+		"css",
+		"json",
+		"jsonc",
+		"vue"
+	],
+	"yaml.format.enable": true,
+	"typescript.suggestionActions.enabled": true,
+	"typescript.format.enabled": true,
+	"html.format.enable": true,
+	"javascript.referencesCodeLens.enable": true,
+	"javascript.showUnused": true,
+	"javascript.suggest.names": true,
+	"javascript.suggestionActions.enabled": true,
+	"json.format.enable": true,
+	"eslint.autoFixOnSave": false,
+	"prettier.printWidth": 100,
+	"prettier.disableLanguages": [],
+	"prettier.formatterPriority": 1,
+	"prettier.useTabs": true,
+	"prettier.trailingComma": "all",
+	"prettier.singleQuote": false,
+	"todolist.autoUpload": true,
+	"todolist.promptForReminder": false,
+	"coc-actions.hideCursor": false,
+	"coc-actions.showActionKind": true,
+
+	// sql lsp
+	"languageserver": {
+		"sql": {
+			"command": "sql-language-server",
+			"args": ["up", "--method", "stdio"],
+			"filetypes": ["sql", "mysql"]
+		}
+	}
 }

@@ -28,6 +28,29 @@ neovim test.txt
 
 https://github.com/neoclide/coc.nvim
 
-```sh
-:CocInstall coc-json coc-css coc-tsserver coc-vetur
+```vimscript
+let g:coc_global_extensions = [
+  \'coc-json',
+  \'coc-css',
+  \'coc-cssmodules',
+  \'coc-stylelint',
+  \'coc-tsserver',
+  \'coc-eslint',
+  \'coc-tslint',
+  \'coc-html',
+  \'coc-git',
+  \'coc-docker',
+  \'coc-nginx',
+  \'coc-prettier',
+  \'coc-sh',
+  \'coc-sql',
+  \'coc-translator',
+  \'coc-valor',
+  \'coc-vetur'
+  \'coc-yaml',
+  \'coc-yank',
+  \'coc-explorer',
+  \'coc-emmet',
+  \'coc-floatterm',
+  \]
 ```
