@@ -113,8 +113,6 @@ nnoremap <down> :resize+1<cr>
 " '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------' 
 " install-plugins
 call plug#begin('~/.config/nvim/plugins')
-Plug 'glepnir/dashboard-nvim'
-Plug 'liuchengxu/vim-clap'
 Plug 'crusoexia/vim-monokai'
 Plug 'easymotion/vim-easymotion'
 Plug 'justinmk/vim-sneak'
@@ -230,24 +228,12 @@ vmap <leader>ts <Plug>(coc-translator-pv)
 " open markdown preview on browser
 nmap <leader>om :CocCommand markdown-preview-enhanced.openPreview<CR>
 
-
-" >>>>> glepnir/dashboard-nvim <<<<<
-let g:dashboard_default_executive ='clap'
-nmap <leader>ss :<C-u>SessionSave<CR>
-nmap <leader>sl :<C-u>SessionLoad<CR>
-nnoremap <silent> <leader>fh :DashboardFindHistory<CR>
-nnoremap <silent> <leader>ff :DashboardFindFile<CR>
-nnoremap <silent> <leader>tc :DashboardChangeColorscheme<CR>
-nnoremap <silent> <leader>fa :DashboardFindWord<CR>
-nnoremap <silent> <leader>fb :DashboardJumpMark<CR>
-nnoremap <silent> <leader>cn :DashboardNewFile<CR>
-
 " >>>>> preservim/nerdcommenter <<<<<
 " close wraning
 let g:NERDSuppressWarnings = 1
 
 " Create default mappings
-let g:NERDCreateDefaultMappings = 1
+let g:NERDCreateDefaultMappings = 0
 
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
@@ -271,8 +257,10 @@ let g:NERDTrimTrailingWhitespace = 1
 let g:NERDToggleCheckAllLines = 1
 
 " toggle comment status
-nnoremap <silent> <c-\\> :call NERDComment('nx', 'Invert')<CR>
-vnoremap <silent> <c-\\> :call NERDComment('nx', 'Invert')<CR>
+nnoremap <silent> <leader><Bslash> :call nerdcommenter#Comment('nx', 'toggle')<CR>
+vnoremap <silent> <leader><Bslash> :call nerdcommenter#Comment('nx', 'toggle')<CR>
+nnoremap <silent> <C-Bslash> :call nerdcommenter#Comment('nx', 'toggle')<CR>
+vnoremap <silent> <C-Bslash> :call nerdcommenter#Comment('nx', 'toggle')<CR>
 
 " >>>>> vim-airline && vim-airline-themes <<<<<
 let g:airline#extensions#tabline#enabled = 1
