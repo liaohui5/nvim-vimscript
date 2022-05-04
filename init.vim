@@ -222,6 +222,10 @@ nmap <leader>cl <Plug>(coc-codelens-action)
 " statusline
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
+" translator
+nmap <leader>ts <Plug>(coc-translator-p)
+vmap <leader>ts <Plug>(coc-translator-pv)
+
 " open markdown preview on browser
 nmap <leader>om :CocCommand markdown-preview-enhanced.openPreview<CR>
 
