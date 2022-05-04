@@ -27,6 +27,8 @@ set nobackup          " Some servers have issues with backup files
 set nowritebackup
 set cmdheight=1       " command line hight
 set updatetime=100    " update time
+set fo-=r             " cancel auto comment
+filetype plugin on    " let the plugin recognize the file type
 
 " .----------------.  .----------------.  .----------------.  .----------------.  .----------------.  .----------------.  .----------------. 
 "| .--------------. || .--------------. || .--------------. || .--------------. || .--------------. || .--------------. || .--------------. |
@@ -110,6 +112,8 @@ nnoremap <down> :resize+1<cr>
 " '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------' 
 " install-plugins
 call plug#begin('~/.config/nvim/plugins')
+Plug 'glepnir/dashboard-nvim'
+Plug 'liuchengxu/vim-clap'
 Plug 'crusoexia/vim-monokai'
 Plug 'easymotion/vim-easymotion'
 Plug 'justinmk/vim-sneak'
@@ -119,6 +123,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-surround'
+Plug 'preservim/nerdcommenter'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
@@ -220,6 +225,50 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " open markdown preview on browser
 nmap <leader>om :CocCommand markdown-preview-enhanced.openPreview<CR>
 
+
+" >>>>> glepnir/dashboard-nvim <<<<<
+let g:dashboard_default_executive ='clap'
+nmap <leader>ss :<C-u>SessionSave<CR>
+nmap <leader>sl :<C-u>SessionLoad<CR>
+nnoremap <silent> <leader>fh :DashboardFindHistory<CR>
+nnoremap <silent> <leader>ff :DashboardFindFile<CR>
+nnoremap <silent> <leader>tc :DashboardChangeColorscheme<CR>
+nnoremap <silent> <leader>fa :DashboardFindWord<CR>
+nnoremap <silent> <leader>fb :DashboardJumpMark<CR>
+nnoremap <silent> <leader>cn :DashboardNewFile<CR>
+
+" >>>>> preservim/nerdcommenter <<<<<
+" close wraning
+let g:NERDSuppressWarnings = 1
+
+" Create default mappings
+let g:NERDCreateDefaultMappings = 1
+
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+
+" Set a language to use its alternate delimiters by default
+let g:NERDAltDelims_java = 1
+
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+
+" Enable NERDCommenterToggle to check all selected lines is commented or not 
+let g:NERDToggleCheckAllLines = 1
+
+" toggle comment status
+nnoremap <silent> <c-\\> :call NERDComment('nx', 'Invert')<CR>
+vnoremap <silent> <c-\\> :call NERDComment('nx', 'Invert')<CR>
+
 " >>>>> vim-airline && vim-airline-themes <<<<<
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
@@ -234,7 +283,8 @@ let g:monokai_gui_italic = 1
 let g:monokai_term_italic = 1
 
 " >>>>> vim-easymotion <<<<<
-let g:EasyMotion_do_mapping = 0 " Disable default mappings
+" Disable default mappings
+let g:EasyMotion_do_mapping = 0
 
 " `s{char}{label}`
 nmap s <Plug>(easymotion-overwin-f)
