@@ -30,6 +30,9 @@ set updatetime=100    " update time
 set fo-=r             " cancel auto comment
 filetype plugin on    " let the plugin recognize the file type
 set nowrap
+set autowriteall      " auto save file
+set autosave=1
+set autoread          " if file content updated will auto reload file content
 
 " .----------------.  .----------------.  .----------------.  .----------------.  .----------------.  .----------------.  .----------------. 
 "| .--------------. || .--------------. || .--------------. || .--------------. || .--------------. || .--------------. || .--------------. |
