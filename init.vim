@@ -29,6 +29,7 @@ set cmdheight=1       " command line hight
 set updatetime=100    " update time
 set fo-=r             " cancel auto comment
 filetype plugin on    " let the plugin recognize the file type
+set nowrap
 
 " .----------------.  .----------------.  .----------------.  .----------------.  .----------------.  .----------------.  .----------------. 
 "| .--------------. || .--------------. || .--------------. || .--------------. || .--------------. || .--------------. || .--------------. |
