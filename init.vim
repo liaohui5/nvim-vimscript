@@ -147,7 +147,6 @@ let g:coc_global_extensions = [
   \'coc-translator',
   \'coc-vetur',
   \'coc-yaml',
-  \'coc-yank',
   \'coc-explorer',
   \'coc-emmet',
   \'coc-webpack',
@@ -221,12 +220,20 @@ nmap <leader>cl <Plug>(coc-codelens-action)
 " statusline
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
-" translator
+" >>>>> coc-translator <<<<<
 nmap <leader>ts <Plug>(coc-translator-p)
 vmap <leader>ts <Plug>(coc-translator-pv)
 
-" open markdown preview on browser
+" >>>>> coc-markdown-preview-enhanced <<<<<
 nmap <leader>om :CocCommand markdown-preview-enhanced.openPreview<CR>
+
+" >>>>> coc-prettier <<<<<
+nmap <leader>f :CocCommand prettier.formatFile<CR>
+vmap <leader>f :CocCommand prettier.formatFile<CR>
+
+" >>>>> coc-explorer <<<<<
+
+nnoremap <C-t> :CocCommand explorer<CR>
 
 " >>>>> preservim/nerdcommenter <<<<<
 " close wraning
@@ -297,14 +304,6 @@ map <leader>k <Plug>(easymotion-k)
 let g:sneak#label = 1
 nmap f <Plug>Sneak_s
 nmap F <Plug>Sneak_S
-
-" >>>>> coc-prettier <<<<<
-nmap <leader>f :CocCommand prettier.formatFile<CR>
-vmap <leader>f :CocCommand prettier.formatFile<CR>
-
-" >>>>> coc-explorer <<<<<
-
-nnoremap <C-t> :CocCommand explorer<CR>
 
 " >>>>> kien/ctrlp.vim <<<<<
 let g:ctrlp_use_caching = 0
