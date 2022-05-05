@@ -116,6 +116,8 @@ nnoremap <down> :resize+1<cr>
 " install-plugins
 call plug#begin('~/.config/nvim/plugins')
 Plug 'crusoexia/vim-monokai'
+Plug 'sonph/onehalf', { 'rtp': 'vim' }
+Plug 'drewtempelmeyer/palenight.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'justinmk/vim-sneak'
 Plug 'editorconfig/editorconfig-vim'
@@ -127,6 +129,12 @@ Plug 'tpope/vim-surround'
 Plug 'preservim/nerdcommenter'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
+
+" >>>>> themecolors <<<<<
+"  Plug 'sonph/onehalf', { 'rtp': 'vim' }
+"  Plug 'drewtempelmeyer/palenight.vim'
+" tomasr/molokai
+" crusoexia/vim-monokai
 
 
 " >>>>> coc.nvim <<<<<
