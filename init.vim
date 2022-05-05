@@ -31,7 +31,6 @@ set fo-=r             " cancel auto comment
 filetype plugin on    " let the plugin recognize the file type
 set nowrap
 set autowriteall      " auto save file
-set autosave=1
 set autoread          " if file content updated will auto reload file content
 
 " .----------------.  .----------------.  .----------------.  .----------------.  .----------------.  .----------------.  .----------------. 
@@ -135,8 +134,6 @@ call plug#end()
 let g:coc_global_extensions = [
   \'coc-json',
   \'coc-css',
-  \'coc-cssmodules',
-  \'coc-stylelint',
   \'coc-diagnostic',
   \'coc-tsserver',
   \'coc-eslint',
@@ -152,10 +149,7 @@ let g:coc_global_extensions = [
   \'coc-yaml',
   \'coc-explorer',
   \'coc-emmet',
-  \'coc-webpack',
   \'coc-marketplace',
-  \'coc-webview',
-  \'coc-markdown-preview-enhanced',
   \'@yaegassy/coc-volar',
   \'@yaegassy/coc-volar-tools',
   \'@yaegassy/coc-nginx',
