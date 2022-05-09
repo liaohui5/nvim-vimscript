@@ -71,8 +71,8 @@ vnoremap s "_s
 nnoremap s "_s
 
 " next buffer & prev buffer
-nnoremap <leader>bp :bprevious<CR>
-nnoremap <leader>bn :bnext<CR>
+nnoremap <leader>gT :bprevious<CR>
+nnoremap <leader>gt :bnext<CR>
 
 " close current buffer but dont close vim
 func CloseBufferOnly()
