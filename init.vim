@@ -69,6 +69,8 @@ nnoremap x "_x
 vnoremap x "_x
 vnoremap s "_s
 nnoremap s "_s
+nnoremap <leader>p "0p
+vnoremap <leader>p "0p
 
 " next buffer & prev buffer
 nnoremap <leader>gT :bprevious<CR>
