@@ -66,6 +66,7 @@ nnoremap - :nohl<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>s :w<CR>
 nnoremap <leader>x :x<CR>
+nnoremap <leader>q :qa<CR>
 
 " only delete not cut
 nnoremap x "_x
@@ -76,8 +77,8 @@ nnoremap <leader>p "0p
 vnoremap <leader>p "0p
 
 " next buffer & prev buffer
-nnoremap <leader>gT :bprevious<CR>
-nnoremap <leader>gt :bnext<CR>
+nnoremap <S-Left> :bprevious<CR>
+nnoremap <S-Right> :bnext<CR>
 
 " close current buffer but dont close vim
 func CloseBufferOnly()
