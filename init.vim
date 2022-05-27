@@ -35,6 +35,10 @@ set nowrap
 set autowriteall      " auto save file
 set autoread          " if file content updated will auto reload file content
 set showmatch
+set foldenable        " enable fold codes
+set foldmethod=manual " manual fold codes
+set signcolumn=yes    " gutter: signcolumn to the left of line numbers
+autocmd BufRead,BufNewFile * setlocal signcolumn=yes
 
 " .----------------.  .----------------.  .----------------.  .----------------.  .----------------.  .----------------.  .----------------. 
 "| .--------------. || .--------------. || .--------------. || .--------------. || .--------------. || .--------------. || .--------------. |
@@ -81,14 +85,14 @@ nnoremap <S-Left> :bprevious<CR>
 nnoremap <S-Right> :bnext<CR>
 
 " close current buffer but dont close vim
-func CloseBufferOnly()
+function CloseBufferOnly()
   :bp|bd #
-endf
-nnoremap <leader>bc :call CloseBufferOnly()<CR>
+endfunction
+cnoremap bc :call CloseBufferOnly()<CR>
 
 " indent & outdent
 vnoremap <Tab> >
-vnoremap <leader><Tab> <
+vnoremap <S-Tab> <
 
 " move to end of line but whitout <CR>
 nnoremap $ $h
@@ -107,6 +111,9 @@ nnoremap <right> :vertical-resize-1<cr>
 nnoremap <left> :vertical-resize+1<cr>
 nnoremap <up> :resize-1<cr>
 nnoremap <down> :resize+1<cr>
+
+" select current word
+nnoremap <leader>d bve
 
 " .----------------.  .----------------.  .----------------.  .----------------.  .----------------.  .-----------------. .----------------. 
 "| .--------------. || .--------------. || .--------------. || .--------------. || .--------------. || .--------------. || .--------------. |
@@ -170,11 +177,6 @@ let g:coc_global_extensions = [
   \]
 
 " Always show the signcolumn
-if has("nvim-0.5.0") || has("patch-8.1.1564")
-  set signcolumn=number
-else
-  set signcolumn=yes
-endif
 
 " Use tab for trigger completion with characters ahead and navigate
 inoremap <silent><expr> <TAB>

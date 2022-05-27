@@ -12,6 +12,7 @@
   "snippets.ultisnips.enable": false,
 
   // ===== tsserver ===== //
+  "tsserver.reportStyleChecksAsWarnings": true,
   "javascript.referencesCodeLens.enable": false,
   "javascript.showUnused": true,
   "javascript.suggest.names": true,
@@ -20,7 +21,7 @@
   "typescript.format.enabled": true,
 
   // ===== diagnostic ===== //
-  "diagnostic.checkCurrentLine": false,
+  "diagnostic.checkCurrentLine": true,
   "diagnostic.virtualTextPrefix": " ❯❯❯ ",
   "diagnostic.virtualText": false,
 
