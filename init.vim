@@ -176,7 +176,9 @@ let g:coc_global_extensions = [
   \'@yaegassy/coc-nginx',
   \]
 
-" Always show the signcolumn
+" volar
+au FileType vue let b:coc_root_patterns = ['.git', '.env', 'package.json', 'tsconfig.json', 'jsconfig.json', 'vite.config.ts', 'nuxt.config.ts']
+nnoremap <leader>vs :CocCommand volar.action.splitEditors<CR>
 
 " Use tab for trigger completion with characters ahead and navigate
 inoremap <silent><expr> <TAB>
