@@ -1,132 +1,123 @@
-" .----------------.  .----------------.  .----------------.  .----------------. 
-"| .--------------. || .--------------. || .--------------. || .--------------. |
-"| |   ______     | || |      __      | || |    _______   | || |  _________   | |
-"| |  |_   _ \    | || |     /  \     | || |   /  ___  |  | || | |_   ___  |  | |
-"| |    | |_) |   | || |    / /\ \    | || |  |  (__ \_|  | || |   | |_  \_|  | |
-"| |    |  __'.   | || |   / ____ \   | || |   '.___`-.   | || |   |  _|  _   | |
-"| |   _| |__) |  | || | _/ /    \ \_ | || |  |`\____) |  | || |  _| |___/ |  | |
-"| |  |_______/   | || ||____|  |____|| || |  |_______.'  | || | |_________|  | |
-"| |              | || |              | || |              | || |              | |
-"| '--------------' || '--------------' || '--------------' || '--------------' |
-" '----------------'  '----------------'  '----------------'  '----------------' 
-set number            " show line numbers
-syntax enable         " allow syntax highlight
-set expandtab         " tab to space
-set cursorline        " highlight current line 
-set clipboard=unnamed " use operate system clipboard
-set tabstop=2         " tab size 2 space
+" ================================================================================
+" base settings
+" ================================================================================
+set number            " 显示行号
+syntax enable         " 允许语法检测
+set expandtab         " 将tab变成空格
+set cursorline        " 高亮当前行
+set clipboard=unnamed " 使用系统粘贴板
+set tabstop=2         " 一个 tab 两个空格宽度
 set shiftwidth=2
 set softtabstop=2
 set expandtab
-set smarttab          " auto indent
+set smarttab          " 自动缩进
 set autoindent
 set cindent
-set encoding=utf-8    " utf-8
+set encoding=utf-8    " 文件编码: utf-8
 set hidden            " TextEdit might fail if hidden is not set.
-set nobackup          " Some servers have issues with backup files
+set nobackup          " 不设置备份
 set nowritebackup
-set cmdheight=1       " command line hight
-set updatetime=100    " update time
-set fo-=r             " cancel auto comment
-filetype plugin on    " let the plugin recognize the file type
-filetype indent on
+set cmdheight=1       " 命令行高度
+set updatetime=100    " 更新间隔时间(ms)
+set fo-=r             " 取消自动注释
+filetype plugin on    " 让插件识别文件类型
+filetype indent on    " 让插件识别缩进
 filetype on
 set nowrap
-set autowriteall      " auto save file
-set autoread          " if file content updated will auto reload file content
+set autowriteall      " 自动保存文件
+set autoread          " 文件内容更新, 自动读取
 set showmatch
-set foldenable        " enable fold codes
-set foldmethod=manual " manual fold codes
-set signcolumn=yes    " gutter: signcolumn to the left of line numbers
+set foldenable        " 允许折叠
+set foldmethod=manual " 折叠方式
+set signcolumn=yes    " 行号左边符号栏目
 autocmd BufRead,BufNewFile * setlocal signcolumn=yes
 
-" .----------------.  .----------------.  .----------------.  .----------------.  .----------------.  .----------------.  .----------------. 
-"| .--------------. || .--------------. || .--------------. || .--------------. || .--------------. || .--------------. || .--------------. |
-"| |  ___  ____   | || |  _________   | || |  ____  ____  | || | ____    ____ | || |      __      | || |   ______     | || |    _______   | |
-"| | |_  ||_  _|  | || | |_   ___  |  | || | |_  _||_  _| | || ||_   \  /   _|| || |     /  \     | || |  |_   __ \   | || |   /  ___  |  | |
-"| |   | |_/ /    | || |   | |_  \_|  | || |   \ \  / /   | || |  |   \/   |  | || |    / /\ \    | || |    | |__) |  | || |  |  (__ \_|  | |
-"| |   |  __'.    | || |   |  _|  _   | || |    \ \/ /    | || |  | |\  /| |  | || |   / ____ \   | || |    |  ___/   | || |   '.___`-.   | |
-"| |  _| |  \ \_  | || |  _| |___/ |  | || |    _|  |_    | || | _| |_\/_| |_ | || | _/ /    \ \_ | || |   _| |_      | || |  |`\____) |  | |
-"| | |____||____| | || | |_________|  | || |   |______|   | || ||_____||_____|| || ||____|  |____|| || |  |_____|     | || |  |_______.'  | |
-"| |              | || |              | || |              | || |              | || |              | || |              | || |              | |
-"| '--------------' || '--------------' || '--------------' || '--------------' || '--------------' || '--------------' || '--------------' |
-" '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------'
-":nmap - Display normal mode maps
-":imap - Display insert mode maps
-":vmap - Display visual and select mode maps
-":smap - Display select mode maps
-":xmap - Display visual mode maps
-":cmap - Display command-line mode maps
-":omap - Display operator pending mode maps
+" ================================================================================
+" key maps
+" ================================================================================
+":mapclear - 取消所有自定义快捷键映射
+":nmap - 查看 normal 模式所有快捷键
+":imap - 查看 insert 模式所有快捷键
+":vmap - 查看 visual 模式所有快捷键
+":xmap - 查看 visual 模式所有快捷键
+":cmap - 查看 command-line 模式所有快捷键
+":smap - 查看 select 模式所有快捷键
+":omap - 查看 operator 模式所有快捷键
+
+" 映射 <leader> 键: 空格, 默认反斜线
 let g:mapleader="\<SPACE>"
 
-" <leader>0 : reload neovim configs
+" leader + 0: 重新载入配置文件
 nnoremap <leader>0 :source ~/.config/nvim/init.vim <CR> 
 
-" no highlight
+" - : 取消高亮
 nnoremap - :nohl<CR>
 
-" <leader>s/<leader>w: save current file, <leader>x: save file and quit vim
+" <leader>w: 保存文件
 nnoremap <leader>w :w<CR>
+
+" <leader>s: 保存文件
 nnoremap <leader>s :w<CR>
+
+" <leader>x: 保存文件然后退出
 nnoremap <leader>x :x<CR>
+
+" <leader>q: 退出编辑器
 nnoremap <leader>q :qa<CR>
 
-" only delete not cut
+" x/s: 删除, 而不是剪切
 nnoremap x "_x
 vnoremap x "_x
 vnoremap s "_s
 nnoremap s "_s
+
+" <leader>p: 多次粘贴,而不是粘贴后复制
 nnoremap <leader>p "0p
 vnoremap <leader>p "0p
 
-" next buffer & prev buffer
-nnoremap <S-Left> :bprevious<CR>
-nnoremap <S-Right> :bnext<CR>
+" shift + ←: 上一个 buffer
+" shift + →: 下一个 buffer
+nnoremap <s-left> :bprevious<CR>
+nnoremap <s-right> :bnext<CR>
 
-" close current buffer but dont close vim
+" <leader>c: 关闭当前 buffer
 function CloseBufferOnly()
   :bp|bd #
 endfunction
-cnoremap bc :call CloseBufferOnly()<CR>
+nnoremap <leader>c :call CloseBufferOnly()<CR>
 
-" indent & outdent
-vnoremap <Tab> >
-vnoremap <S-Tab> <
+" tab: 向右缩进
+" shift+tab: 向左缩进
+vnoremap <tab> >
+vnoremap <s-tab> <
 
-" move to end of line but whitout <CR>
+" 移动到最后, 但是不包括换行符
 nnoremap $ $h
 vnoremap $ $h
 
-" create file & delte files(Notice a space at the end of the line)
+" 这连个命令, 类 unix 系统有效
+" <leader>n: 创建文件
+" <leader>df: 删除文件
 nnoremap <leader>n :!touch 
 nnoremap <leader>df :!rm -rf 
 
-" find selection & replace
+" <CTRL-f>: 搜索(选中后)
+" <leader>r: 替换
 vnoremap <C-f> gd<ESC>
 nnoremap <leader>r :%s/
 
 " window resize
-nnoremap <right> :vertical-resize-1<cr>
-nnoremap <left> :vertical-resize+1<cr>
-nnoremap <up> :resize-1<cr>
-nnoremap <down> :resize+1<cr>
+nnoremap <right> :vertical-resize-1<CR>
+nnoremap <left> :vertical-resize+1<CR>
+nnoremap <up> :resize+1<CR>
+nnoremap <down> :resize-1<CR>
 
 " select current word
-nnoremap <c-e> bve
+nnoremap <C-e> bve
 
-" .----------------.  .----------------.  .----------------.  .----------------.  .----------------.  .-----------------. .----------------. 
-"| .--------------. || .--------------. || .--------------. || .--------------. || .--------------. || .--------------. || .--------------. |
-"| |   ______     | || |   _____      | || | _____  _____ | || |    ______    | || |     _____    | || | ____  _____  | || |    _______   | |
-"| |  |_   __ \   | || |  |_   _|     | || ||_   _||_   _|| || |  .' ___  |   | || |    |_   _|   | || ||_   \|_   _| | || |   /  ___  |  | |
-"| |    | |__) |  | || |    | |       | || |  | |    | |  | || | / .'   \_|   | || |      | |     | || |  |   \ | |   | || |  |  (__ \_|  | |
-"| |    |  ___/   | || |    | |   _   | || |  | '    ' |  | || | | |    ____  | || |      | |     | || |  | |\ \| |   | || |   '.___`-.   | |
-"| |   _| |_      | || |   _| |__/ |  | || |   \ `--' /   | || | \ `.___]  _| | || |     _| |_    | || | _| |_\   |_  | || |  |`\____) |  | |
-"| |  |_____|     | || |  |________|  | || |    `.__.'    | || |  `._____.'   | || |    |_____|   | || ||_____|\____| | || |  |_______.'  | |
-"| |              | || |              | || |              | || |              | || |              | || |              | || |              | |
-"| '--------------' || '--------------' || '--------------' || '--------------' || '--------------' || '--------------' || '--------------' |
-" '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------' 
-" install-plugins
+" ================================================================================
+" plugins
+" ================================================================================
 call plug#begin('~/.config/nvim/plugins')
 Plug 'crusoexia/vim-monokai'
 Plug 'sonph/onehalf', { 'rtp': 'vim' }
@@ -166,7 +157,7 @@ let g:coc_global_extensions = [
   \'coc-sh',
   \'coc-sql',
   \'coc-translator',
-  \'coc-vetur',
+  \'coc-html-css-support',
   \'coc-yaml',
   \'coc-explorer',
   \'coc-emmet',
@@ -176,11 +167,11 @@ let g:coc_global_extensions = [
   \'@yaegassy/coc-nginx',
   \]
 
-" volar
+" volar 插件: <leader>vs: 将当前 vue 文件分割为3个窗口
 au FileType vue let b:coc_root_patterns = ['.git', '.env', 'package.json', 'tsconfig.json', 'jsconfig.json', 'vite.config.ts', 'nuxt.config.ts']
 nnoremap <leader>vs :CocCommand volar.action.splitEditors<CR>
 
-" Use tab for trigger completion with characters ahead and navigate
+" 使用 Tab 触发选择下一个代码 Shift-Tab/Ctrl-p 上一个
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
@@ -192,24 +183,24 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-" i mode<c-l>: show completion popwindow
-inoremap <silent><expr> <c-l> coc#refresh()
+" CTRL+l: 插入模式下,显示代码提示
+inoremap <silent><expr> <C-l> coc#refresh()
 
-" goto code navigation.
+" 跳到函数定义位置(文件)
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-" use enter select completion item
+" 使用 enter 确认选中代码提示
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
-" prev error & next error
+" <lader>[ / leader]: 跳到上一个错误,下一个错误
 nmap <silent><leader>[ <Plug>(coc-diagnostic-prev)
 nmap <silent><leader>] <Plug>(coc-diagnostic-next)
 
-" <leader>h: show documentation in preview window.
+" <leader>h: 查看文档
 nnoremap <silent><leader>h :call <SID>show_documentation()<CR>
 function! s:show_documentation()
   if CocAction('hasProvider', 'hover')
@@ -219,70 +210,29 @@ function! s:show_documentation()
   endif
 endfunction
 
-" show codeaction menus
+" <leader>m: 给选中代码提供快捷改善操作
 xmap <leader>m <Plug>(coc-codeaction-selected)
 nmap <leader>m <Plug>(coc-codeaction-selected)
 
-" show codeaction menus
+" <leader>ac: 显示代码改进建议菜单
 nmap <leader>ac <Plug>(coc-codeaction)
 
-" auto fix
-nmap <leader>qf <Plug>(coc-fix-current)
-
-" Run the Code Lens action on the current line.
-nmap <leader>cl <Plug>(coc-codelens-action)
-
-" statusline
+" 状态栏设置
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " >>>>> coc-translator <<<<<
-nmap <leader>ts <Plug>(coc-translator-p)
-vmap <leader>ts <Plug>(coc-translator-pv)
-
-" >>>>> coc-markdown-preview-enhanced <<<<<
-nmap <leader>om :CocCommand markdown-preview-enhanced.openPreview<CR>
+" <leader>ts: 翻译
+nmap <leader>fy <Plug>(coc-translator-p)
+vmap <leader>fy <Plug>(coc-translator-pv)
 
 " >>>>> coc-prettier <<<<<
+" <leader>f: 格式化当前文件
 nmap <leader>f :CocCommand prettier.formatFile<CR>
 vmap <leader>f :CocCommand prettier.formatFile<CR>
 
 " >>>>> coc-explorer <<<<<
-
+" Ctrl+t: 显示侧边栏文件目录树
 nnoremap <C-t> :CocCommand explorer<CR>
-
-" >>>>> preservim/nerdcommenter <<<<<
-" close wraning
-let g:NERDSuppressWarnings = 1
-
-" Create default mappings
-let g:NERDCreateDefaultMappings = 0
-
-" Add spaces after comment delimiters by default
-let g:NERDSpaceDelims = 1
-
-" Use compact syntax for prettified multi-line comments
-let g:NERDCompactSexyComs = 1
-
-" Align line-wise comment delimiters flush left instead of following code indentation
-let g:NERDDefaultAlign = 'left'
-
-" Set a language to use its alternate delimiters by default
-let g:NERDAltDelims_java = 1
-
-" Allow commenting and inverting empty lines (useful when commenting a region)
-let g:NERDCommentEmptyLines = 1
-
-" Enable trimming of trailing whitespace when uncommenting
-let g:NERDTrimTrailingWhitespace = 1
-
-" Enable NERDCommenterToggle to check all selected lines is commented or not 
-let g:NERDToggleCheckAllLines = 1
-
-" toggle comment status
-nnoremap <silent> <leader><Bslash> :call nerdcommenter#Comment('nx', 'toggle')<CR>
-vnoremap <silent> <leader><Bslash> :call nerdcommenter#Comment('nx', 'toggle')<CR>
-nnoremap <silent> <C-Bslash> :call nerdcommenter#Comment('nx', 'toggle')<CR>
-vnoremap <silent> <C-Bslash> :call nerdcommenter#Comment('nx', 'toggle')<CR>
 
 " >>>>> vim-airline && vim-airline-themes <<<<<
 let g:airline#extensions#tabline#enabled = 1
@@ -298,33 +248,32 @@ let g:monokai_gui_italic = 1
 let g:monokai_term_italic = 1
 
 " >>>>> vim-easymotion <<<<<
-" Disable default mappings
+" 禁止使用默认的快捷键
 let g:EasyMotion_do_mapping = 0
 
-" `s{char}{label}`
+" `s{char}{label}`: 按下s搜索字符
 nmap s <Plug>(easymotion-overwin-f)
-
 " `s{char}{char}{label}`
 "nmap s <Plug>(easymotion-overwin-f2)
 
 " Turn on case-insensitive feature
 let g:EasyMotion_smartcase = 1
 
-" JK motions: Line motions
+" <leader>j / <leader>k: 快速向下/上跳行
 map <leader>j <Plug>(easymotion-j)
 map <leader>k <Plug>(easymotion-k)
 
-
 " >>>>> vim-sneak <<<<<
+" f: 在行内向后搜索, F:在行内向前搜索
 let g:sneak#label = 1
 nmap f <Plug>Sneak_s
 nmap F <Plug>Sneak_S
 
 " >>>>> kien/ctrlp.vim <<<<<
+" Ctrl+p: 搜索文件
 let g:ctrlp_use_caching = 0
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
-
 let g:ctrlp_custom_ignore = {
   \ 'dir': '\v[\/](node_modules|dist|build|logs|tmp)|(\.(swp|ico|git|svn))$',
   \ 'file': '\v\.(exe|so|dll|dat|DS_Store)$',
