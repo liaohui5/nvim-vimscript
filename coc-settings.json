@@ -1,6 +1,6 @@
 {
-  // ===== vetur ===== //
-  "vetur.ignoreProjectWarning": true,
+  // ===== coc-translator ===== //
+  "translator.engines": ["youdao"],
 
   // ===== snippets ===== //
   "snippets.autoTrigger": true,

@@ -221,8 +221,7 @@ nmap <leader>ac <Plug>(coc-codeaction)
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " >>>>> coc-translator <<<<<
-" <leader>ts: 翻译
-nmap <leader>fy <Plug>(coc-translator-p)
+" <leader>fy: 翻译
 vmap <leader>fy <Plug>(coc-translator-pv)
 
 " >>>>> coc-prettier <<<<<
