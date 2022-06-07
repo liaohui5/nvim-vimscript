@@ -19,7 +19,6 @@ set nobackup          " 不设置备份
 set nowritebackup
 set cmdheight=1       " 命令行高度
 set updatetime=100    " 更新间隔时间(ms)
-set fo-=r             " 取消自动注释
 filetype plugin on    " 让插件识别文件类型
 filetype indent on    " 让插件识别缩进
 filetype on
@@ -31,6 +30,8 @@ set foldenable        " 允许折叠
 set foldmethod=manual " 折叠方式
 set signcolumn=yes    " 行号左边符号栏目
 autocmd BufRead,BufNewFile * setlocal signcolumn=yes
+set fo-=r             " 取消自动注释
+autocmd FileType javascript,typescript setlocal comments-=:// comments+=f://
 
 " ================================================================================
 " key maps
@@ -168,7 +169,7 @@ let g:coc_global_extensions = [
   \]
 
 " volar 插件: <leader>vs: 将当前 vue 文件分割为3个窗口
-au FileType vue let b:coc_root_patterns = ['.git', '.env', 'package.json', 'tsconfig.json', 'jsconfig.json', 'vite.config.ts', 'nuxt.config.ts']
+autocmd FileType vue let b:coc_root_patterns = ['.git', '.env', 'package.json', 'tsconfig.json', 'jsconfig.json', 'vite.config.ts', 'nuxt.config.ts']
 nnoremap <leader>vs :CocCommand volar.action.splitEditors<CR>
 
 " 使用 Tab 触发选择下一个代码 Shift-Tab/Ctrl-p 上一个
@@ -279,4 +280,36 @@ let g:ctrlp_custom_ignore = {
   \ 'link': 'some_bad_symbolic_links',
   \ }
 
+" >>>>> preservim/nerdcommenter <<<<<
+" 注释插件快捷键
+" 创建插件默认的快捷键映射: https://github.com/preservim/nerdcommenter#default-mappings
+let g:NERDCreateDefaultMappings = 0
+
+" 在注释符号后面加一个空格
+let g:NERDSpaceDelims = 1
+
+" 多行注释使用
+let g:NERDCompactSexyComs = 1
+
+" 注释左对齐而不是随代码缩进
+let g:NERDDefaultAlign = 'left'
+
+" 设置一个默认语言的注释作为其他文件注释
+let g:NERDAltDelims_java = 1
+
+" 添加你自己的格式覆盖默认的格式
+" let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+
+" 允许注释空行
+let g:NERDCommentEmptyLines = 1
+
+" 删除注释结尾空格
+let g:NERDTrimTrailingWhitespace = 1
+
+" 允许插件检测选中的所有行是否都注释
+let g:NERDToggleCheckAllLines = 1
+
+" <leader> \: 切换注释状态(gv: 切换状态后依然选中,而不是立即切换到 normal 模式)
+" vmap <leader><Bslash> <Plug>NERDCommenterToggle<CR>gv
+vmap <leader><Bslash> <Plug>NERDCommenterToggle<CR>
 
