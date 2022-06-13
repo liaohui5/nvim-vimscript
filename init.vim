@@ -120,6 +120,8 @@ nnoremap <C-e> bve
 " plugins
 " ================================================================================
 call plug#begin('~/.config/nvim/plugins')
+Plug 'voldikss/vim-floaterm'
+Plug 'joshdick/onedark.vim'
 Plug 'crusoexia/vim-monokai'
 Plug 'sonph/onehalf', { 'rtp': 'vim' }
 Plug 'drewtempelmeyer/palenight.vim'
@@ -172,10 +174,10 @@ let g:coc_global_extensions = [
   \'coc-json',
   \'coc-docker',
   \'coc-css',
-  \'\@yaegassy/coc-volar-tools',
-  \'\@yaegassy/coc-volar',
-  \'\@yaegassy/coc-nginx',
-  \'\@yaegassy/coc-nginx',
+  \'@yaegassy/coc-volar-tools',
+  \'@yaegassy/coc-volar',
+  \'@yaegassy/coc-nginx',
+  \'@yaegassy/coc-nginx',
   \]
 
 " volar 插件: <leader>vs: 将当前 vue 文件分割为3个窗口
@@ -322,4 +324,16 @@ let g:NERDToggleCheckAllLines = 1
 " <leader> \: 切换注释状态(gv: 切换状态后依然选中,而不是立即切换到 normal 模式)
 " vmap <leader><Bslash> <Plug>NERDCommenterToggle<CR>gv
 vmap <leader><Bslash> <Plug>NERDCommenterToggle<CR>
+
+" >>>>> voldikss/vim-floaterm <<<<<
+nnoremap   <silent>   <F8>    :FloatermPrev<CR>
+tnoremap   <silent>   <F8>    <C-\><C-n>:FloatermPrev<CR>
+nnoremap   <silent>   <F9>    :FloatermNext<CR>
+tnoremap   <silent>   <F9>    <C-\><C-n>:FloatermNext<CR>
+nnoremap   <silent>   <F10>    :FloatermKill<CR>
+tnoremap   <silent>   <F10>    <C-\><C-n>:FloatermKill<CR>
+nnoremap   <silent>   <F12>    :FloatermNew<CR>
+tnoremap   <silent>   <F12>    <C-\><C-n>:FloatermNew<CR>
+nnoremap   <silent>   <C-n>   :FloatermToggle<CR>
+tnoremap   <silent>   <C-n>   <C-\><C-n>:FloatermToggle<CR>
 
