@@ -330,10 +330,10 @@ nnoremap   <silent>   <F8>    :FloatermPrev<CR>
 tnoremap   <silent>   <F8>    <C-\><C-n>:FloatermPrev<CR>
 nnoremap   <silent>   <F9>    :FloatermNext<CR>
 tnoremap   <silent>   <F9>    <C-\><C-n>:FloatermNext<CR>
-nnoremap   <silent>   <F10>    :FloatermKill<CR>
-tnoremap   <silent>   <F10>    <C-\><C-n>:FloatermKill<CR>
-nnoremap   <silent>   <F12>    :FloatermNew<CR>
-tnoremap   <silent>   <F12>    <C-\><C-n>:FloatermNew<CR>
+nnoremap   <silent>   <F10>   :FloatermKill<CR>
+tnoremap   <silent>   <F10>   <C-\><C-n>:FloatermKill<CR>
+nnoremap   <silent>   <F12>   :FloatermNew<CR>
+tnoremap   <silent>   <F12>   <C-\><C-n>:FloatermNew<CR>
 nnoremap   <silent>   <C-n>   :FloatermToggle<CR>
 tnoremap   <silent>   <C-n>   <C-\><C-n>:FloatermToggle<CR>
 
