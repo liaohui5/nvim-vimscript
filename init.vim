@@ -126,13 +126,19 @@ Plug 'drewtempelmeyer/palenight.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'justinmk/vim-sneak'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'grvcoelho/vim-javascript-snippets'
 Plug 'kien/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-surround'
 Plug 'preservim/nerdcommenter'
+Plug 'grvcoelho/vim-javascript-snippets'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'andys8/vscode-jest-snippets'
+Plug 'xabikos/vscode-javascript'
+Plug 'nathanchapman/vscode-javascript-snippets'
+Plug 'capaj/vscode-standardjs-snippets'
+Plug 'dsznajder/vscode-es7-javascript-react-snippets', { 'do': 'yarn install --frozen-lockfile && yarn compile' }
+Plug 'burkeholland/simple-react-snippets'
 call plug#end()
 
 " >>>>> themecolors <<<<<
@@ -145,27 +151,31 @@ call plug#end()
 " >>>>> coc.nvim <<<<<
 " install coc extensions: https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions#why-are-coc-extensions-needed
 let g:coc_global_extensions = [
-  \'coc-json',
-  \'coc-css',
-  \'coc-diagnostic',
-  \'coc-tsserver',
-  \'coc-eslint',
-  \'coc-tslint',
-  \'coc-html',
-  \'coc-git',
-  \'coc-docker',
-  \'coc-prettier',
-  \'coc-sh',
-  \'coc-sql',
   \'coc-translator',
-  \'coc-html-css-support',
-  \'coc-yaml',
-  \'coc-explorer',
-  \'coc-emmet',
+  \'coc-snippets',
+  \'coc-scssmodules',
+  \'coc-prettier',
   \'coc-marketplace',
-  \'@yaegassy/coc-volar',
-  \'@yaegassy/coc-volar-tools',
-  \'@yaegassy/coc-nginx',
+  \'coc-html-css-support',
+  \'coc-html',
+  \'coc-highlight',
+  \'coc-git',
+  \'coc-explorer',
+  \'coc-eslint',
+  \'coc-emmet',
+  \'coc-diagnostic',
+  \'coc-yaml',
+  \'coc-tsserver',
+  \'coc-tslint',
+  \'coc-sql',
+  \'coc-sh',
+  \'coc-json',
+  \'coc-docker',
+  \'coc-css',
+  \'\@yaegassy/coc-volar-tools',
+  \'\@yaegassy/coc-volar',
+  \'\@yaegassy/coc-nginx',
+  \'\@yaegassy/coc-nginx',
   \]
 
 " volar 插件: <leader>vs: 将当前 vue 文件分割为3个窗口

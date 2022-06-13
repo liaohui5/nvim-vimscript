@@ -32,28 +32,44 @@ https://github.com/neoclide/coc.nvim
 
 ```vimscript
 let g:coc_global_extensions = [
-  \'coc-json',
-  \'coc-css',
-  \'coc-diagnostic',
-  \'coc-tsserver',
-  \'coc-eslint',
-  \'coc-tslint',
-  \'coc-html',
-  \'coc-git',
-  \'coc-docker',
-  \'coc-prettier',
-  \'coc-sh',
-  \'coc-sql',
   \'coc-translator',
-  \'coc-vetur',
-  \'coc-yaml',
-  \'coc-explorer',
-  \'coc-emmet',
+  \'coc-snippets',
+  \'coc-scssmodules',
+  \'coc-prettier',
   \'coc-marketplace',
-  \'@yaegassy/coc-volar',
-  \'@yaegassy/coc-volar-tools',
-  \'@yaegassy/coc-nginx',
+  \'coc-html-css-support',
+  \'coc-html',
+  \'coc-highlight',
+  \'coc-git',
+  \'coc-explorer',
+  \'coc-eslint',
+  \'coc-emmet',
+  \'coc-diagnostic',
+  \'coc-yaml',
+  \'coc-tsserver',
+  \'coc-tslint',
+  \'coc-sql',
+  \'coc-sh',
+  \'coc-json',
+  \'coc-docker',
+  \'coc-css',
+  \'\@yaegassy/coc-volar-tools',
+  \'\@yaegassy/coc-volar',
+  \'\@yaegassy/coc-nginx',
+  \'\@yaegassy/coc-nginx',
   \]
+```
+
+## 安装其他 vscode 语法提示插件
+
+> 必须先安装 coc-snippets, 这些 vscode 提示插件才能生效
+
+```sh
+:CocInstall https://github.com/andys8/vscode-jest-snippets
+
+# or
+
+Plug 'andys8/vscode-jest-snippets'
 ```
 
 ## 如果图标显示错误
