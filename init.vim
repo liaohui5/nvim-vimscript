@@ -107,13 +107,13 @@ nnoremap <leader>df :!rm -rf
 vnoremap <C-f> gd<ESC>
 nnoremap <leader>r :%s/
 
-" window resize
-nnoremap <right> :vertical-resize-1<CR>
-nnoremap <left> :vertical-resize+1<CR>
-nnoremap <up> :resize+1<CR>
-nnoremap <down> :resize-1<CR>
+" 当前窗口重新设置大小
+nnoremap <C-Right> :vertical-resize-1<CR>
+nnoremap <C-Left>  :vertical-resize+1<CR>
+nnoremap <C-Up>    :resize+1<CR>
+nnoremap <C-Down>  :resize-1<CR>
 
-" select current word
+" 选中当前单词
 nnoremap <C-e> bve
 
 " ================================================================================
