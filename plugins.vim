@@ -4,6 +4,7 @@
 call plug#begin('~/.config/nvim/plugins')
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'luochen1990/rainbow'
 Plug 'voldikss/vim-floaterm'
 Plug 'joshdick/onedark.vim'
 Plug 'crusoexia/vim-monokai'
@@ -12,7 +13,6 @@ Plug 'drewtempelmeyer/palenight.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'justinmk/vim-sneak'
 Plug 'editorconfig/editorconfig-vim'
-"Plug 'kien/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-surround'
@@ -33,7 +33,6 @@ call plug#end()
 " tomasr/molokai
 " crusoexia/vim-monokai
 
-
 " >>>>> coc.nvim <<<<<
 " install coc extensions: https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions#why-are-coc-extensions-needed
 let g:coc_global_extensions = [
@@ -41,6 +40,8 @@ let g:coc_global_extensions = [
   \'coc-snippets',
   \'coc-scssmodules',
   \'coc-prettier',
+  \'coc-pairs',
+  \'coc-yank',
   \'coc-marketplace',
   \'coc-html-css-support',
   \'coc-html',
