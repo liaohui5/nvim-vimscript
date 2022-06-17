@@ -2,6 +2,8 @@
 " plugins
 " ================================================================================
 call plug#begin('~/.config/nvim/plugins')
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 Plug 'voldikss/vim-floaterm'
 Plug 'joshdick/onedark.vim'
 Plug 'crusoexia/vim-monokai'
@@ -10,7 +12,7 @@ Plug 'drewtempelmeyer/palenight.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'justinmk/vim-sneak'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'kien/ctrlp.vim'
+"Plug 'kien/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-surround'

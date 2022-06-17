@@ -143,9 +143,9 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 vmap <leader>fy <Plug>(coc-translator-pv)
 
 " >>>>> coc-prettier <<<<<
-" <leader>f: 格式化当前文件
-nmap <leader>f :CocCommand prettier.formatFile<CR>
-vmap <leader>f :CocCommand prettier.formatFile<CR>
+" <leader>ff: 格式化当前文件
+nmap <leader>ff :CocCommand prettier.formatFile<CR>
+vmap <leader>ff :CocCommand prettier.formatFile<CR>
 
 " >>>>> coc-explorer <<<<<
 " Ctrl+t: 显示侧边栏文件目录树
@@ -188,14 +188,14 @@ nmap F <Plug>Sneak_S
 
 " >>>>> kien/ctrlp.vim <<<<<
 " Ctrl+p: 搜索文件
-let g:ctrlp_use_caching = 0
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
-set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
-let g:ctrlp_custom_ignore = {
-  \ 'dir': '\v[\/](node_modules|dist|build|logs|tmp)|(\.(swp|ico|git|svn))$',
-  \ 'file': '\v\.(exe|so|dll|dat|DS_Store)$',
-  \ 'link': 'some_bad_symbolic_links',
-  \ }
+" let g:ctrlp_use_caching = 0
+" set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+" set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
+" let g:ctrlp_custom_ignore = {
+"   \ 'dir': '\v[\/](node_modules|dist|build|logs|tmp)|(\.(swp|ico|git|svn))$',
+"   \ 'file': '\v\.(exe|so|dll|dat|DS_Store)$',
+"   \ 'link': 'some_bad_symbolic_links',
+"   \ }
 
 " >>>>> preservim/nerdcommenter <<<<<
 " 注释插件快捷键
@@ -231,14 +231,33 @@ let g:NERDToggleCheckAllLines = 1
 vmap <leader><Bslash> <Plug>NERDCommenterToggle<CR>
 
 " >>>>> voldikss/vim-floaterm <<<<<
+" F8: 前一个终端
 nnoremap   <silent>   <F8>    :FloatermPrev<CR>
 tnoremap   <silent>   <F8>    <C-\><C-n>:FloatermPrev<CR>
+" F9: 后一个终端
 nnoremap   <silent>   <F9>    :FloatermNext<CR>
 tnoremap   <silent>   <F9>    <C-\><C-n>:FloatermNext<CR>
+" F10: 关闭当前终端
 nnoremap   <silent>   <F10>   :FloatermKill<CR>
 tnoremap   <silent>   <F10>   <C-\><C-n>:FloatermKill<CR>
+" F12: 创建一个新的终端
 nnoremap   <silent>   <F12>   :FloatermNew<CR>
 tnoremap   <silent>   <F12>   <C-\><C-n>:FloatermNew<CR>
+" Ctrl + n: 切换终端显示
 nnoremap   <silent>   <C-n>   :FloatermToggle<CR>
 tnoremap   <silent>   <C-n>   <C-\><C-n>:FloatermToggle<CR>
+
+" >>>>> nvim-telescope/telescope.nvim <<<<<
+" Ctrl + p: 搜索文件
+nnoremap <C-p> <cmd>Telescope find_files<CR>
+
+" <leader>fg: 全局搜索字符串
+nnoremap <leader>fg <cmd>Telescope live_grep<CR>
+
+" <leader>fb: 搜索buffer
+nnoremap <leader>fb <cmd>Telescope buffers<CR>
+
+" <leader>fh: 显示帮助文档
+nnoremap <leader>fh <cmd>Telescope help_tags<CR>
+
 
