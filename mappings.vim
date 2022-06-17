@@ -228,7 +228,8 @@ let g:NERDToggleCheckAllLines = 1
 
 " <leader> \: 切换注释状态(gv: 切换状态后依然选中,而不是立即切换到 normal 模式)
 " vmap <leader><Bslash> <Plug>NERDCommenterToggle<CR>gv
-vmap <leader><Bslash> <Plug>NERDCommenterToggle<CR>
+" Ctrl + \: 切换注释状态
+vmap <C-\> <Plug>NERDCommenterToggle<CR>
 
 " >>>>> voldikss/vim-floaterm <<<<<
 " F8: 前一个终端
