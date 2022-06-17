@@ -32,6 +32,7 @@ set signcolumn=yes    " 行号左边符号栏目
 autocmd BufRead,BufNewFile * setlocal signcolumn=yes
 set fo-=r             " 取消自动注释
 autocmd FileType javascript,typescript setlocal comments-=:// comments+=f://
+let g:loaded_perl_provider = 0 " 不支持 perl provider
 
 " ================================================================================
 " key maps
