@@ -25,6 +25,7 @@ Plug 'nathanchapman/vscode-javascript-snippets'
 Plug 'capaj/vscode-standardjs-snippets'
 Plug 'dsznajder/vscode-es7-javascript-react-snippets', { 'do': 'yarn install --frozen-lockfile && yarn compile' }
 Plug 'burkeholland/simple-react-snippets'
+Plug 'MattesGroeger/vim-bookmarks'
 call plug#end()
 
 " >>>>> themecolors <<<<<

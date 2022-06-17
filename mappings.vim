@@ -291,4 +291,31 @@ let g:rainbow_conf = {
   \	}
   \}
 
+" >>>>> MattesGroeger/vim-bookmarks <<<<<
+highlight BookmarkSign ctermbg=NONE ctermfg=160
+highlight BookmarkLine ctermbg=194 ctermfg=NONE
+" 书签标志字符
+let g:bookmark_sign = '♥'
+" 书签高度
+let g:bookmark_highlight_lines = 1
+" 不要使用默认的快捷键
+let g:bookmark_no_default_key_mappings = 1
+
+" mm: 切换书签状态
+nmap mm <Plug>BookmarkToggle
+
+" mi: 添加一个其他类型的书签(可输入文字)
+nmap mi <Plug>BookmarkAnnotate
+
+" ma: 查看所有书签
+nmap ma <Plug>BookmarkShowAll
+
+" mj: 查看下一个书签
+nmap mj <Plug>BookmarkNext
+
+" mk: 查看删一个书签
+nmap mk <Plug>BookmarkPrev
+
+" mc: 删除所有书签
+nmap mc <Plug>BookmarkClearAll
 
