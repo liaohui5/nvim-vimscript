@@ -14,11 +14,15 @@
   // ===== tsserver ===== //
   "tsserver.reportStyleChecksAsWarnings": true,
   "javascript.referencesCodeLens.enable": false,
-  "javascript.showUnused": true,
+  "typescript.referencesCodeLens.enable": false,
   "javascript.suggest.names": true,
   "tsserver.trace.server": "off",
   "typescript.suggestionActions.enabled": true,
   "typescript.format.enabled": true,
+  "typescript.showUnused": false,
+  "javascript.showUnused": false,
+  "typescript.implementationsCodeLens.enable": false,
+  "javascript.implementationsCodeLens.enable": false,
 
   // ===== diagnostic ===== //
   "diagnostic.checkCurrentLine": true,

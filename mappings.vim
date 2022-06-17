@@ -25,9 +25,6 @@ nnoremap <leader>w :w<CR>
 " <leader>s: 保存文件
 nnoremap <leader>s :w<CR>
 
-" <leader>x: 保存文件然后退出
-nnoremap <leader>x :x<CR>
-
 " <leader>q: 退出编辑器
 nnoremap <leader>q :qa<CR>
 
@@ -41,10 +38,12 @@ nnoremap s "_s
 nnoremap <leader>p "0p
 vnoremap <leader>p "0p
 
-" shift + ←: 上一个 buffer
-" shift + →: 下一个 buffer
-nnoremap <s-left> :bprevious<CR>
-nnoremap <s-right> :bnext<CR>
+" gT: 上一个 buffer
+" gt: 下一个 buffer
+nnoremap gT :bprevious<CR>
+nnoremap gt :bnext<CR>
+nnoremap g$ :blast<CR>
+nnoremap g0 :bfirst<CR>
 
 " <leader>x: 关闭当前 buffer
 function! CloseBufferOnly()
@@ -292,6 +291,7 @@ let g:rainbow_conf = {
   \}
 
 " >>>>> MattesGroeger/vim-bookmarks <<<<<
+" 书签管理插件
 highlight BookmarkSign ctermbg=NONE ctermfg=160
 highlight BookmarkLine ctermbg=194 ctermfg=NONE
 " 书签标志字符
@@ -318,4 +318,10 @@ nmap mk <Plug>BookmarkPrev
 
 " mc: 删除所有书签
 nmap mc <Plug>BookmarkClearAll
+
+" >>>>> 907th/vim-auto-save <<<<<
+" 自动保存文件插件
+let g:auto_save = 1
+let g:auto_save_silent = 1
+let g:auto_save_events = ["InsertLeave", "TextChanged"]
 
