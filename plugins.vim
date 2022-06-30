@@ -2,6 +2,7 @@
 " plugins
 " ================================================================================
 call plug#begin('~/.config/nvim/plugins')
+Plug 'digitaltoad/vim-pug'
 Plug '907th/vim-auto-save'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
