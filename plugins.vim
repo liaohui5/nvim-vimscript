@@ -2,6 +2,7 @@
 " plugins
 " ================================================================================
 call plug#begin('~/.config/nvim/plugins')
+Plug 'junegunn/vim-easy-align'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'luochen1990/rainbow'

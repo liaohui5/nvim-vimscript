@@ -77,7 +77,7 @@
   },
 
   // settings
-  "codeLens.enable": true,
+  "codeLens.enable": false,
   "coc.preferences.extensionUpdateCheck": "daily",
   "coc.preferences.snippetStatusText": "Ⓢ ",
   "coc.preferences.enableFloatHighlight": true,

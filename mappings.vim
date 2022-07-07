@@ -329,3 +329,11 @@ let g:auto_save_events = ["InsertLeave", "TextChanged"]
 " >>>>> editorconfig/editorconfig-vim <<<<<
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 au FileType gitcommit let b:EditorConfig_disable = 1
+
+" >>>>> junegunn/vim-easy-align <<<<<
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
