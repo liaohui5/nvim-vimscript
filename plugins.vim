@@ -21,21 +21,18 @@ Plug 'tpope/vim-surround'
 Plug 'preservim/nerdcommenter'
 Plug 'MattesGroeger/vim-bookmarks'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'grvcoelho/vim-javascript-snippets'
 Plug 'andys8/vscode-jest-snippets'
 Plug 'xabikos/vscode-javascript'
-Plug 'nathanchapman/vscode-javascript-snippets'
-Plug 'capaj/vscode-standardjs-snippets'
-Plug 'dsznajder/vscode-es7-javascript-react-snippets', { 'do': 'yarn install --frozen-lockfile && yarn compile' }
-Plug 'burkeholland/simple-react-snippets'
 Plug 'sdras/vue-vscode-snippets'
+Plug 'algorizen/vscode-javascript-snippets'
 call plug#end()
 
-" >>>>> themecolors <<<<<
-"  Plug 'sonph/onehalf', { 'rtp': 'vim' }
-"  Plug 'drewtempelmeyer/palenight.vim'
-" tomasr/molokai
-" crusoexia/vim-monokai
+" >>>>> snippets plugins <<<<<
+" Plug 'grvcoelho/vim-javascript-snippets'
+" Plug 'nathanchapman/vscode-javascript-snippets'
+" Plug 'capaj/vscode-standardjs-snippets'
+" Plug 'dsznajder/vscode-es7-javascript-react-snippets', { 'do': 'yarn install --frozen-lockfile && yarn compile' }
+" Plug 'burkeholland/simple-react-snippets'
 
 " >>>>> coc.nvim <<<<<
 " install coc extensions: https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions#why-are-coc-extensions-needed
