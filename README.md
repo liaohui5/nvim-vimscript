@@ -1,6 +1,8 @@
 ## 说明
 
-这是一个自己用的 neovim 配置的仓库
+这是一个自己用的 neovim 配置的仓库, 这个仓库不会再维护了, [我改用 lua 配置文件了](https://github.com/liaohui5/nvim)
+
+但是作为学习 vim 还是非常不错的资料, 我的配置文件中有中文的注释
 
 ![preview](https://raw.githubusercontent.com/liaohui5/images/main/images/202205032331754.png)
 
@@ -13,7 +15,7 @@ brew install neovim
 ## 将这个项目 clone 到 `~/.config/nvim` 目录下
 
 ```sh
-git clone https://gitee.com/liaohui5/neovim-config ~/.config/nvim
+git clone https://gitee.com/liaohui5/nvim-vimscript ~/.config/nvim
 ```
 
 ## 安装插件
@@ -36,6 +38,8 @@ let g:coc_global_extensions = [
   \'coc-snippets',
   \'coc-scssmodules',
   \'coc-prettier',
+  \'coc-pairs',
+  \'coc-yank',
   \'coc-marketplace',
   \'coc-html-css-support',
   \'coc-html',
@@ -53,10 +57,9 @@ let g:coc_global_extensions = [
   \'coc-json',
   \'coc-docker',
   \'coc-css',
-  \'\@yaegassy/coc-volar-tools',
-  \'\@yaegassy/coc-volar',
-  \'\@yaegassy/coc-nginx',
-  \'\@yaegassy/coc-nginx',
+  \'@yaegassy/coc-volar-tools',
+  \'@yaegassy/coc-volar',
+  \'@yaegassy/coc-nginx',
   \]
 ```
 
@@ -73,7 +76,12 @@ Plug 'andys8/vscode-jest-snippets'
 ```
 
 ## 如果图标显示错误
+
 1. 请安装指定字体 https://github.com/ryanoasis/nerd-fonts
 2. 将终端的字体设置为这个字体我的是 hack-nerd
 
+## 自定义你的配置
 
+1. 选项 init.vim, 基本快捷键 mappings.vim
+2. 插件列表 plugins.vim
+3. 插件配置 config/\*.vim
