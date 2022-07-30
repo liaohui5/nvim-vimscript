@@ -25,14 +25,14 @@ call plug#end()
 " ================================================================================
 " plugins key maps override
 " ================================================================================
-source ./config/airline.vim
-source ./config/autosave.vim
-source ./config/coc.vim
-source ./config/easyalign.vim
-source ./config/easymotion.vim
-source ./config/editorconfig.vim
-source ./config/floaterm.vim
-source ./config/molokai.vim
-source ./config/nerdcommenter.vim
-source ./config/sneak.vim
-source ./config/telescope.vim
+runtime ./config/airline.vim
+runtime ./config/autosave.vim
+runtime ./config/coc.vim
+runtime ./config/easyalign.vim
+runtime ./config/easymotion.vim
+runtime ./config/editorconfig.vim
+runtime ./config/floaterm.vim
+runtime ./config/molokai.vim
+runtime ./config/nerdcommenter.vim
+runtime ./config/sneak.vim
+runtime ./config/telescope.vim
